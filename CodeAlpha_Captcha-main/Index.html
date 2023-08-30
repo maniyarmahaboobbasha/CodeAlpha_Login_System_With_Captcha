@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captch_reloading</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="head1">Login Page</h1><br><br>
+        <form>
+            <label>User Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Username" class="box" required><br><br>
+            <label>Password:</label><br>
+            <input type="text" id="name" name="name" placeholder="Password" class="box" required><br><br>
+            <label>Enter Captcha:</label><br>
+            <div class="row">
+                <input type="text" id="capt" name="captcha" class="box" readonly>
+            </div>
+            <div class="col">
+                <input type="text" id="textinput" name="captcha" class="box" placeholder="Enter Captcha" required>
+            </div><br><br>
+            <button onclick="validcap()">
+                <h3>&nbsp;&nbsp;&nbsp;Submit</h3>
+            </button>
+        </form>
+        <h3>&nbsp;&nbsp;&nbsp;Captcha not visible? <img src="refresh.png" width="40px" onclick="cap()"></h3><br>
+        <h3>&nbsp;&nbsp;&nbsp;New user? <a href="#">Sign up</a></h3><br>
+        <h3>&nbsp;&nbsp;&nbsp;Forget Password? <a href="#">Recover here</a></h3>
+    </div>
+    <script type="text/javascript">
+        function cap() {
+            var alpha = ['a', 'A', 'b', 'B', 'c', 'c', 'd', 'D', 'e', 'E', 'f', 'F',
+                'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'k', 'L', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+                'l', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T',
+                'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', '!', '@', '#', '$','%','^', '&', '*', '+', '-', '*', '/']
+            var a = alpha[Math.floor(Math.random() * 71)];
+            var b =alpha[Math.floor(Math.random() * 71)];
+            var c =alpha[Math.floor(Math.random() * 71)];
+            var d = alpha[Math.floor(Math.random() * 71)];
+            var e = alpha[Math.floor(Math.random() * 71)];
+            var f =alpha[Math.floor(Math.random() * 71)];
+            var final = a+b+c+d+e+f;
+            document.getElementById("capt").value =final;
+        }
+        cap();
+        function validcap(){
+            var str1 = document.getElementById('capt').value;
+            var str2 = document.getElementById('textinput').value;
+            if(str1==str2)
+            {
+                alert("Form is validated sucessfully");
+                return true;
+            }
+            else
+            {
+                alert("Please, enter valid captcha");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
